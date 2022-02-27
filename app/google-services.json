@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "259958114239",
+    "project_id": "freezy-app-e449f",
+    "storage_bucket": "freezy-app-e449f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259958114239:android:070ee73fe65a102a07c30a",
+        "android_client_info": {
+          "package_name": "com.crumlabs.freezyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259958114239-8sa6ava997v6t779tbf32fvtiudjdgbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5TStqLDg_qmunn55GV3QlV_5Bd0rJZw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "259958114239-8sa6ava997v6t779tbf32fvtiudjdgbl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

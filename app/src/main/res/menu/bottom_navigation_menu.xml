@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/explore"
+        android:enabled="true"
+        android:icon="@drawable/ic_explore"
+        android:title="Explore"/>
+    <item
+        android:id="@+id/faves"
+        android:enabled="true"
+        android:icon="@drawable/ic_like"
+        android:title="Favorites"/>
+    <item
+        android:id="@+id/newp"
+        android:enabled="true"
+        android:icon="@drawable/ic_add"
+        android:title="Upload"/>
+    <item
+        android:id="@+id/messages"
+        android:enabled="true"
+        android:icon="@drawable/ic_chat"
+        android:title="Messages"/>
+    <item
+        android:id="@+id/account"
+        android:enabled="true"
+        android:icon="@drawable/ic_person"
+        android:title="Account"/>
+</menu>
