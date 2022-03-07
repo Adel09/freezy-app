@@ -83,10 +83,57 @@
         android:backgroundTint="#FFBB94"
         android:textColor="@color/black"
         android:text="Contact owner"
-        app:icon="@drawable/ic_phone"
+        app:icon="@drawable/ic_chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Posted by:"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="48dp"
+        android:src="@drawable/avatar"
+        app:layout_constraintBottom_toTopOf="@+id/containedButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/owner_name_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/owner_city_detail"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        tools:text="Owner Name" />
+
+    <TextView
+        android:id="@+id/owner_city_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="48dp"
+        android:textSize="15sp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/containedButton"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        tools:text="Lives in " />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

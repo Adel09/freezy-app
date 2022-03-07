@@ -126,7 +126,7 @@ class UploadFragment : Fragment() {
                         try {
                             if (!name.isEmpty()) {
                                 val item = Item(id = id, name = name, description = desc, imgUrl = downloadurl, city = it.value.toString(), owner = user.uid)
-                                database.child("items").push().setValue(item)
+                                database.child("items").child(id).setValue(item)
                                 itemName.setText("")
                                 itemDescription.setText("")
                                 Toast.makeText(context, "Thanks for posting", Toast.LENGTH_LONG).show()

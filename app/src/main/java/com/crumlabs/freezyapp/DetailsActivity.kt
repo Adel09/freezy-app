@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.crumlabs.freezyapp.models.Item
+import com.crumlabs.freezyapp.models.User
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
@@ -17,7 +18,7 @@ class DetailsActivity : AppCompatActivity() {
 
 
     lateinit var database: DatabaseReference
-    lateinit var itemv: Item
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,57 +31,54 @@ class DetailsActivity : AppCompatActivity() {
         }
         println("Id received is $itemid")
         database = Firebase.database.reference
-        val query: Query? = database.child("items").orderByChild("id").equalTo(itemid)
+        val query: DatabaseReference? = database.child("items").child(itemid!!)
 
-        val postListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                // Get Item object and use the values to update the UI
+        if (query != null) {
+            query.get().addOnSuccessListener {
+                val item = it.getValue<Item>()
+                println(item?.name)
 
-                for (item in dataSnapshot.children){
+                    if (item?.name != null) {
 
-                    itemv = item.getValue<Item>()!!
 
-                    if (itemv?.name != null) {
-                        item_detail_name.text = itemv.name
-                        item_detail_location.text = "${itemv.city} \uD83D\uDCCD"
-                        item_detail_description.text = itemv.description
-                        Picasso.get().load(itemv.imgUrl).placeholder(R.drawable.placeholder).into(item_img_detail)
-                        println("The item itself is $itemv")
-                        println("Item name: ${itemv.name}")
-                        getAndSetOwner(itemv)
+
+                        item_detail_name.text = item.name
+                        item_detail_location.text = "${item.city} \uD83D\uDCCD"
+                        item_detail_description.text = item.description
+                        Picasso.get().load(item.imgUrl).placeholder(R.drawable.placeholder).into(item_img_detail)
+                        println("The item itself is $item")
+                        println("Item name: ${item.name}")
+                        setOwner(item.owner!!)
+
                     }else{
-                        println("The item itself is $itemv")
+                        println("The item itself is $item")
                         println("Item name is null")
                     }
-                }
-            }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Getting Post failed, log a message
-                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
             }
         }
-        if (query != null) {
-            //query.addValueEventListener(postListener)
-            query.addListenerForSingleValueEvent(postListener)
-        }else{
-            println("Query is null")
-        }
+
+
 
     }
 
-    fun getAndSetOwner(item: Item){
-        if (item != null){
-            val query: Query? = database.child("users").child(item.owner!!)
-            if (query != null) {
-                query.get().addOnSuccessListener {
-                    println("The owner is ${it.value}")
-                }.addOnFailureListener {
-                    println("There was a problem getting the owner")
-                    println(it.message)
-                }
+    fun setOwner(uid: String) {
+        val ownerQuery: DatabaseReference? = database.child("users").child(uid)
+        lateinit var owner: User
+        if (ownerQuery != null) {
+            ownerQuery.get().addOnSuccessListener {
+                owner = it.getValue<User>()!!
+                print(owner?.name)
+                owner_name_detail.text = owner.name
+                owner_city_detail.text = "Lives in ${owner.city}"
+
             }
+
+        }else{
+            println("Owner is null")
         }
+
+
 
     }
 
