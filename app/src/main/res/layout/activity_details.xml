@@ -82,6 +82,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="#FFBB94"
         android:textColor="@color/black"
+        android:onClick="goToChat"
         android:text="Contact owner"
         app:icon="@drawable/ic_chat"
         app:layout_constraintBottom_toBottomOf="parent"

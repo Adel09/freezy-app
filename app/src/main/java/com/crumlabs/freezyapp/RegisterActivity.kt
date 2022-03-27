@@ -108,7 +108,7 @@ class RegisterActivity : AppCompatActivity() {
 
     fun register(view: View){
         database = Firebase.database.reference
-        val newUser = User(user.displayName ,user.email, phoneInput.text.toString(), country, state, city)
+        val newUser = User(user.displayName ,user.email, phoneInput.text.toString(), country.toLowerCase(), state.toLowerCase(), city.toLowerCase())
         database.child("users").child(user.uid).setValue(newUser)
         val intent = Intent(applicationContext, BaseActivity::class.java)
         startActivity(intent)

@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FreezyApp">
-        <activity android:name=".DetailsActivity"></activity>
+        <activity android:name=".ContactOwnerActivity"></activity>
+        <activity android:name=".NoConnectionActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".DetailsActivity" />
         <activity android:name=".BaseActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
